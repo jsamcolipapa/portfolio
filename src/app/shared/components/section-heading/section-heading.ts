@@ -3,19 +3,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'app-section-heading',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <div class="mb-7 md:flex md:items-end md:justify-between md:gap-9">
-      <div>
-        <p class="eyebrow">{{ eyebrow() }}</p>
-        <h2 class="text-[clamp(1.6rem,3vw,2.125rem)] leading-tight font-bold tracking-tight">
-          {{ title() }}
-        </h2>
-      </div>
-      @if (intro(); as text) {
-        <p class="mt-3 max-w-[490px] text-sm text-muted md:mt-0">{{ text }}</p>
-      }
-    </div>
-  `,
+  templateUrl: './section-heading.html',
+  styleUrl: './section-heading.scss',
 })
 export class SectionHeading {
   readonly eyebrow = input.required<string>();

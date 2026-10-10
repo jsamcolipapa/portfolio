@@ -6,29 +6,8 @@ import { CREDENTIALS } from '../../data/credentials';
   selector: 'app-credentials',
   imports: [LucideDynamicIcon],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <aside
-      id="credentials"
-      aria-labelledby="credentials-title"
-      class="rounded-2xl border border-[#1b3655] bg-linear-150 from-[#0b1a2e] to-[#06101d] p-5"
-    >
-      <p class="eyebrow">Credentials</p>
-      <h2 id="credentials-title" class="mb-4 text-[17px] font-bold">Certifications & Education</h2>
-      <ul>
-        @for (credential of credentials; track credential.category) {
-          <li class="flex items-start gap-3 border-t border-[#1b304a] py-3.5">
-            <span class="icon-tile size-9 rounded-full border border-accent-strong text-[#c4b5fd]">
-              <svg [lucideIcon]="credential.icon" size="17"></svg>
-            </span>
-            <div>
-              <h3 class="text-sm font-bold">{{ credential.category }}</h3>
-              <p class="mt-0.5 text-xs text-muted">{{ credential.detail ?? 'To be added' }}</p>
-            </div>
-          </li>
-        }
-      </ul>
-    </aside>
-  `,
+  templateUrl: './credentials.html',
+  styleUrl: './credentials.scss',
 })
 export class Credentials {
   protected readonly credentials = CREDENTIALS;

@@ -11,16 +11,7 @@ import { Navbar } from './shared/components/navbar/navbar';
   selector: 'app-root',
   imports: [Navbar, Home, Projects, Skills, Experience, Contact, Footer],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-    <app-navbar />
-    <main>
-      <app-home />
-      <app-projects />
-      <app-skills />
-      <app-experience />
-      <app-contact />
-    </main>
-    <app-footer />
-  `,
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
 export class App {}
