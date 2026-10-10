@@ -25,7 +25,6 @@ npm run build   # production build in dist/portfolio/browser
 | Case studies | `src/app/data/projects.ts` |
 | Skills | `src/app/data/skills.ts` |
 | Key contributions | `src/app/data/experience.ts` |
-| Certifications and education | `src/app/data/credentials.ts` |
 | Email and profile links | `.env` (see [Contact details](#contact-details)) |
 | Navigation links | `src/app/data/navigation.ts` |
 
@@ -46,10 +45,10 @@ it away from spam scrapers. Anyone visiting the site can still read all three de
 
 ## Before publishing
 
-- Fill in `credentials.ts` and the contact details. Entries left empty show "To be added".
+- Fill in the contact details. Entries left empty show "To be added".
 - Keep case studies anonymized: no employer or product names, internal screenshots, endpoints,
   customer data, or unapproved metrics.
-- List only verified certifications, education and outcomes.
+- List only verified outcomes.
 
 ## Structure
 
@@ -57,7 +56,7 @@ it away from spam scrapers. Anyone visiting the site can still read all three de
 src/app/
   core/models/         typed content models
   data/                portfolio content
-  features/            page sections (home, projects, skills, experience, credentials, contact)
+  features/            page sections (home, projects, skills, experience, contact)
   shared/components/   navbar, footer, project-card, section-heading
   app.ts               composes the page
 ```
