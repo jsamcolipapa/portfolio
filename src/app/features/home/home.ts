@@ -1,0 +1,110 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  LucideArrowUpRight,
+  LucideDynamicIcon,
+  LucideFolderKanban,
+  LucideMail,
+} from '@lucide/angular';
+import { PROFILE } from '../../data/profile';
+
+@Component({
+  selector: 'app-home',
+  imports: [LucideDynamicIcon, LucideArrowUpRight, LucideFolderKanban, LucideMail],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <section id="home" class="overflow-hidden border-b border-line py-12 md:py-[72px]">
+      <div class="container-page grid items-center gap-5 lg:grid-cols-[1fr_1.12fr] lg:gap-10">
+        <div>
+          <p class="eyebrow">Hi, I'm</p>
+          <h1
+            class="mb-4 max-w-[620px] text-[clamp(2.75rem,5vw,4.25rem)] leading-[1.04] font-bold tracking-tighter"
+          >
+            {{ profile.givenNames }}<br />
+            <span
+              class="bg-linear-100 from-accent-soft to-[#60a5fa] to-75% bg-clip-text text-transparent"
+              >{{ profile.familyName }}</span
+            >
+          </h1>
+          <p class="mb-4 text-base leading-relaxed text-[#d5e3f7] md:text-[19px]">
+            {{ profile.role }}
+            @for (item of profile.focus; track item) {
+              <span aria-hidden="true"> · </span>{{ item }}
+            }
+          </p>
+          <p class="max-w-[540px] text-sm text-muted md:text-[15px]">{{ profile.intro }}</p>
+          <div class="mt-6 flex flex-wrap gap-3.5">
+            <a
+              class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-accent-strong bg-linear-120 from-[#7c3aed] to-[#5b5ee8] px-5 py-3 text-sm font-bold shadow-lg shadow-[#6d28d9]/20 transition hover:-translate-y-0.5 sm:w-auto"
+              href="#projects"
+            >
+              <svg lucideFolderKanban size="16"></svg>
+              View My Projects
+              <svg lucideArrowUpRight size="16"></svg>
+            </a>
+            <a
+              class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-[#42577a] bg-[#081629] px-5 py-3 text-sm font-bold transition hover:-translate-y-0.5 sm:w-auto"
+              href="#contact"
+            >
+              <svg lucideMail size="16"></svg>
+              Get In Touch
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="relative isolate grid place-items-center py-14 md:min-h-[400px] md:py-0"
+          aria-hidden="true"
+        >
+          <div
+            class="absolute -z-10 size-80 rounded-full bg-[#3730a3] opacity-20 blur-[100px]"
+          ></div>
+
+          <div
+            class="w-full max-w-[530px] overflow-hidden rounded-2xl border border-[#345477] bg-linear-145 from-[#10213a] to-[#06101e] to-70% shadow-[0_28px_80px_#0008,0_0_0_6px_#0b1930] lg:[transform:perspective(1000px)_rotateY(-7deg)_rotateX(2deg)]"
+          >
+            <div
+              class="flex h-10 items-center gap-2 border-b border-[#1c3553] px-4 text-[11px] text-[#7d95b5]"
+            >
+              <span class="size-2 rounded-full bg-[#f472b6]"></span>
+              <span class="size-2 rounded-full bg-[#fbbf24]"></span>
+              <span class="size-2 rounded-full bg-[#34d399]"></span>
+              <span class="ml-2">enterprise-app / feature.component.ts</span>
+            </div>
+            <pre
+              class="overflow-hidden px-3.5 py-4 font-mono text-[10px] leading-[2.05] text-[#8fa7c8] md:px-6 md:py-6 md:text-xs"
+            ><span class="text-[#c4b5fd]">&#64;Component</span>(&#123;
+  selector: <span class="text-[#86efac]">'app-feature'</span>,
+  templateUrl: <span class="text-[#86efac]">'./feature.component.html'</span>,
+  changeDetection: <span class="text-[#67e8f9]">OnPush</span>,
+&#125;)
+<span class="text-[#c4b5fd]">export class</span> <span class="text-[#67e8f9]">FeatureComponent</span> &#123;
+  <span class="text-[#7d95b5]">// Build better experiences</span>
+&#125;</pre>
+          </div>
+
+          @for (badge of profile.badges; track badge.label; let i = $index) {
+            <div
+              class="absolute flex items-center gap-1.5 rounded-xl border border-line-strong bg-[#09182b] px-2.5 py-1.5 text-[10px] font-bold shadow-xl shadow-black/30 md:gap-2.5 md:px-3.5 md:py-2.5 md:text-xs"
+              [class]="badgePositions[i]"
+            >
+              <span class="icon-tile size-7 rounded-lg bg-[#172f52] text-sky md:size-[34px]">
+                <svg [lucideIcon]="badge.icon" size="16"></svg>
+              </span>
+              {{ badge.label }}
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  `,
+})
+export class Home {
+  protected readonly profile = PROFILE;
+
+  protected readonly badgePositions = [
+    'top-0 left-0 md:left-[4%]',
+    'top-3 right-0 md:top-12',
+    'bottom-3 left-0 md:bottom-6 md:left-[2%]',
+    'bottom-0 right-0 md:bottom-2 md:right-[10%]',
+  ];
+}
