@@ -65,7 +65,7 @@ export class Navbar {
 
   /**
    * The section under a probe line just below the sticky header. Later links win, so a
-   * section nested in another (credentials inside experience) takes over once it is reached.
+   * section nested in another takes over once it is reached.
    */
   private currentSection(sections: readonly HTMLElement[]): string {
     const last = sections.at(-1);

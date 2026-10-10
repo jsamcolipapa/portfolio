@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 import { NAV_LINKS } from './data/navigation';
 import { PROFILE } from './data/profile';
-import { PROJECTS } from './data/projects';
+import { PERSONAL_PROJECTS, PROJECTS } from './data/projects';
 
 describe('App', () => {
   it('renders the name in the hero heading', async () => {
@@ -22,10 +22,10 @@ describe('App', () => {
     }
   });
 
-  it('renders one card per case study', async () => {
+  it('renders one card per case study and personal project', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const cards = (fixture.nativeElement as HTMLElement).querySelectorAll('app-project-card');
-    expect(cards.length).toBe(PROJECTS.length);
+    expect(cards.length).toBe(PROJECTS.length + PERSONAL_PROJECTS.length);
   });
 });

@@ -42,13 +42,26 @@
         </li>
       }
     </ul>
-    <a
-      class="inline-flex items-center gap-2 self-start text-sm font-bold text-[#a5b4fc] hover:text-white"
-      href="#contact"
-      [attr.aria-label]="'Discuss ' + item.title"
-    >
-      Discuss this project
-      <svg lucideArrowRight size="15"></svg>
-    </a>
+    @if (item.url; as url) {
+      <a
+        class="inline-flex items-center gap-2 self-start text-sm font-bold text-[#a5b4fc] hover:text-white"
+        [href]="url"
+        target="_blank"
+        rel="noopener noreferrer"
+        [attr.aria-label]="'View ' + item.title + ' live'"
+      >
+        View live
+        <svg lucideArrowRight size="15"></svg>
+      </a>
+    } @else {
+      <a
+        class="inline-flex items-center gap-2 self-start text-sm font-bold text-[#a5b4fc] hover:text-white"
+        href="#contact"
+        [attr.aria-label]="'Discuss ' + item.title"
+      >
+        Discuss this project
+        <svg lucideArrowRight size="15"></svg>
+      </a>
+    }
   </div>
 </article>

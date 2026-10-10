@@ -9,6 +9,5 @@ export const NAV_LINKS: readonly NavLink[] = [
   { label: 'Projects', target: 'projects' },
   { label: 'Skills', target: 'skills' },
   { label: 'Experience', target: 'experience' },
-  { label: 'Credentials', target: 'credentials' },
   { label: 'Contact', target: 'contact' },
 ];

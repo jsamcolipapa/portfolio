@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { PROJECTS } from '../../../data/projects';
+import { PERSONAL_PROJECTS, PROJECTS } from '../../../data/projects';
 import { ProjectCard } from './project-card';
 
 describe('ProjectCard', () => {
@@ -25,5 +25,18 @@ describe('ProjectCard', () => {
     const link = (fixture.nativeElement as HTMLElement).querySelector('a');
     expect(link?.getAttribute('href')).toBe('#contact');
     expect(link?.getAttribute('aria-label')).toBe(`Discuss ${project.title}`);
+  });
+
+  it('links to the live site in a new tab when the project has one', async () => {
+    const project = PERSONAL_PROJECTS[0];
+    const fixture = TestBed.createComponent(ProjectCard);
+    fixture.componentRef.setInput('project', project);
+    await fixture.whenStable();
+
+    const link = (fixture.nativeElement as HTMLElement).querySelector('a');
+    expect(link?.getAttribute('href')).toBe(project.url);
+    expect(link?.getAttribute('target')).toBe('_blank');
+    expect(link?.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(link?.textContent).toContain('View live');
   });
 });

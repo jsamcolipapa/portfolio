@@ -8,4 +8,6 @@ export interface Project {
   summary: string;
   tags: readonly string[];
   icon: LucideIcon;
+  /** Live site. When set, the card links to it instead of the contact section. */
+  url?: string;
 }
