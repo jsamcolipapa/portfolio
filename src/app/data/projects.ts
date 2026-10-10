@@ -1,4 +1,4 @@
-import { LucideBoxes, LucideMapPin, LucideTag } from '@lucide/angular';
+import { LucideBoxes, LucideCloudSun, LucideMapPin, LucideTag } from '@lucide/angular';
 import { Project } from '../core/models/project.model';
 
 // Anonymized summaries of professional work. Keep employer and product names,
@@ -30,5 +30,19 @@ export const PROJECTS: readonly Project[] = [
       'Contributed to daily cycle count and inventory-related user flows, with API-backed data, validation, and front-end state management.',
     tags: ['Angular', 'TypeScript', 'RxJS', 'REST APIs', 'AWS AppSync'],
     icon: LucideBoxes,
+  },
+];
+
+// Personal projects: public, so they can be named and linked.
+export const PERSONAL_PROJECTS: readonly Project[] = [
+  {
+    title: 'Weather Dashboard',
+    label: 'Weather',
+    type: 'Personal Project',
+    summary:
+      'A weather dashboard with current conditions, hourly and 14-day forecasts, an animated rain radar, air quality and weather alerts. Installable, and works offline with the last forecast.',
+    tags: ['Angular 22', 'TypeScript', 'Angular Material', 'Leaflet', 'PWA', 'SCSS'],
+    icon: LucideCloudSun,
+    url: 'https://jsamcolipapa.github.io/weather-app-angular/',
   },
 ];

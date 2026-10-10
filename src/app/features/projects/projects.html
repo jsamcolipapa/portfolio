@@ -10,5 +10,18 @@
         <app-project-card class="md:last:col-span-2 lg:last:col-span-1" [project]="project" />
       }
     </div>
+
+    <div class="mt-11">
+      <app-section-heading
+        eyebrow="Personal project"
+        title="Built on My Own Time"
+        intro="A side project I designed, built and deployed myself. It is live, so you can try it."
+      />
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        @for (project of personalProjects; track project.title) {
+          <app-project-card [project]="project" />
+        }
+      </div>
+    </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PROJECTS } from '../../data/projects';
+import { PERSONAL_PROJECTS, PROJECTS } from '../../data/projects';
 import { ProjectCard } from '../../shared/components/project-card/project-card';
 import { SectionHeading } from '../../shared/components/section-heading/section-heading';
 
@@ -12,4 +12,5 @@ import { SectionHeading } from '../../shared/components/section-heading/section-
 })
 export class Projects {
   protected readonly projects = PROJECTS;
+  protected readonly personalProjects = PERSONAL_PROJECTS;
 }

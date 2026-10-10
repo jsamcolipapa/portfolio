@@ -22,7 +22,7 @@ npm run build   # production build in dist/portfolio/browser
 | What | File |
 | --- | --- |
 | Name, role, intro, hero badges | `src/app/data/profile.ts` |
-| Case studies | `src/app/data/projects.ts` |
+| Case studies and personal projects | `src/app/data/projects.ts` |
 | Skills | `src/app/data/skills.ts` |
 | Key contributions | `src/app/data/experience.ts` |
 | Email and profile links | `.env` (see [Contact details](#contact-details)) |
