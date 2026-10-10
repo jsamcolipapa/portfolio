@@ -26,14 +26,27 @@ npm run build   # production build in dist/portfolio/browser
 | Skills | `src/app/data/skills.ts` |
 | Key contributions | `src/app/data/experience.ts` |
 | Certifications and education | `src/app/data/credentials.ts` |
-| Email and profile links | `src/app/data/contact.ts` |
+| Email and profile links | `.env` (see [Contact details](#contact-details)) |
 | Navigation links | `src/app/data/navigation.ts` |
 
 Theme colours and fonts are defined in the `@theme` block of `src/styles.css`.
 
+## Contact details
+
+The email address and profile links are not kept in the repository. They are read from
+environment variables and written to a gitignored file by `scripts/generate-contact.mjs`.
+
+- Locally, copy `.env.example` to `.env` and fill in the values.
+- Start the app with `npm start`, not `ng serve`: only the npm scripts read `.env`.
+- After editing `.env` while the dev server is running, run `npm run contact` to apply it.
+- Values left empty show "To be added".
+
+The email address is stored encoded and only shown when a visitor clicks its card, which keeps
+it away from spam scrapers. Anyone visiting the site can still read all three details.
+
 ## Before publishing
 
-- Fill in `credentials.ts` and `contact.ts`. Entries left as `null` show "To be added".
+- Fill in `credentials.ts` and the contact details. Entries left empty show "To be added".
 - Keep case studies anonymized: no employer or product names, internal screenshots, endpoints,
   customer data, or unapproved metrics.
 - List only verified certifications, education and outcomes.
@@ -51,5 +64,11 @@ src/app/
 
 ## Deployment
 
-Not configured yet. The build output is plain static files, so it can be hosted on GitHub Pages or
-Cloudflare Pages. For a GitHub Pages project site, build with `--base-href /<repo-name>/`.
+`.github/workflows/deploy.yml` builds and publishes the site to GitHub Pages on every push to
+`main`. One-time setup in the GitHub repository:
+
+- Settings → Pages → Source: **GitHub Actions**.
+- Settings → Secrets and variables → Actions → Variables: add `CONTACT_EMAIL`,
+  `CONTACT_LINKEDIN_URL` and `CONTACT_GITHUB_URL`.
+
+The workflow builds with `--base-href /portfolio/`; change it there if the repository is renamed.

@@ -17,13 +17,19 @@
             </span>
             <span class="min-w-0">
               <strong class="block text-sm">{{ link.label }}</strong>
-              <span class="block text-xs break-words text-muted">{{
-                link.display ?? 'To be added'
-              }}</span>
+              <span class="block text-xs break-words text-muted">{{ displayOf(link) }}</span>
             </span>
           </ng-template>
 
-          @if (link.href; as href) {
+          @if (link.encodedEmail; as encoded) {
+            <button
+              type="button"
+              class="flex w-full cursor-pointer items-center gap-3 rounded-xl border border-[#1b3655] bg-panel p-4 text-left transition-colors hover:border-accent"
+              (click)="openEmail(encoded)"
+            >
+              <ng-container [ngTemplateOutlet]="body" />
+            </button>
+          } @else if (link.href; as href) {
             <a
               class="flex items-center gap-3 rounded-xl border border-[#1b3655] bg-panel p-4 transition-colors hover:border-accent"
               [href]="href"
