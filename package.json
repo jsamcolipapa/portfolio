@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "contact": "node scripts/generate-contact.mjs",
+    "prestart": "npm run contact",
     "start": "ng serve",
+    "prebuild": "npm run contact",
     "build": "ng build",
+    "prewatch": "npm run contact",
     "watch": "ng build --watch --configuration development",
+    "pretest": "npm run contact",
     "test": "ng test"
   },
   "private": true,

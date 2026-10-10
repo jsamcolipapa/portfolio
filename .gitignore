@@ -14,6 +14,9 @@
 # Environment files
 /.env
 
+# Contact details generated from the environment (scripts/generate-contact.mjs)
+/src/app/data/contact.generated.ts
+
 # Angular CLI and build artefacts
 /.angular-cli.json
 /.ng/
