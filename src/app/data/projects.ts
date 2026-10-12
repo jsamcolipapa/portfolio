@@ -1,4 +1,10 @@
-import { LucideBoxes, LucideCloudSun, LucideMapPin, LucideTag } from '@lucide/angular';
+import {
+  LucideBoxes,
+  LucideCloudSun,
+  LucideMapPin,
+  LucideTag,
+  LucideUtensils,
+} from '@lucide/angular';
 import { Project } from '../core/models/project.model';
 
 // Anonymized summaries of professional work. Keep employer and product names,
@@ -44,5 +50,15 @@ export const PERSONAL_PROJECTS: readonly Project[] = [
     tags: ['Angular 22', 'TypeScript', 'Angular Material', 'Leaflet', 'PWA', 'SCSS'],
     icon: LucideCloudSun,
     url: 'https://jsamcolipapa.github.io/weather-app-angular/',
+  },
+  {
+    title: 'Crave: Nearby Food Finder',
+    label: 'Food finder',
+    type: 'Personal Project',
+    summary:
+      'Finds restaurants, cafés and fast food near you on a map. Filter by craving, hide places that are closed, save favorites and open directions in your maps app. No account or backend: everything stays on your device.',
+    tags: ['Angular 21', 'TypeScript', 'MapLibre GL', 'OpenStreetMap', 'Angular Material', 'PWA'],
+    icon: LucideUtensils,
+    url: 'https://jsamcolipapa.github.io/food-finder/',
   },
 ];
